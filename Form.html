@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        /* basic stylings ------------------------------------------ */
+        
+        body {
+            background: url(https://3.bp.blogspot.com/-gx9HbccLZNY/Wk-FyuKongI/AAAAAAAAAAo/M3XXGKxmd1QBukob70uZdoI1dH_cbCoSwCPcBGAYYCw/s1600/background-wallpaper-22922-23558-hd-wallpapers.jpg);
+        }
+        
+        .container {
+            font-family: 'Roboto';
+            width: 100%;
+            max-width: 920px;
+            margin: 30px auto 0;
+            display: block;
+            background: #FFF;
+            padding: 10px 50px 50px;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h2 small {
+            font-weight: normal;
+            color: #888;
+            display: block;
+        }
+        
+        .moreAppButton {
+            background-color: #0c588e;
+            border: none;
+            color: white;
+            padding: 18px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin: -14px;
+            cursor: pointer;
+        }
+        
+        .footer {
+            text-align: center;
+        }
+        
+        .footer a {
+            color: #53B2C8;
+        }
+        /* form starting stylings ------------------------------- */
+        
+        .group {
+            position: relative;
+            margin-bottom: 45px;
+        }
+        
+        .input {
+            font-size: 18px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #757575;
+            color: #424242;
+            font-family: roboto;
+        }
+        
+        .input:focus {
+            outline: none;
+        }
+        /* LABEL ======================================= */
+        
+        label {
+            color: #999;
+            font-size: 18px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 10px;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+        /* active state */
+        
+        .input:focus ~ label,
+        .input:valid ~ label {
+            top: -20px;
+            font-size: 14px;
+            color: #5264AE;
+        }
+        /* BOTTOM BARS ================================= */
+        
+        .bar {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+        
+        .bar:before,
+        .bar:after {
+            content: '';
+            height: 2px;
+            width: 0;
+            bottom: 1px;
+            position: absolute;
+            background: #5264AE;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+        
+        .bar:before {
+            left: 50%;
+        }
+        
+        .bar:after {
+            right: 50%;
+        }
+        /* active state */
+        
+        .input:focus ~ .bar:before,
+        .input:focus ~ .bar:after {
+            width: 50%;
+        }
+        /* HIGHLIGHTER ================================== */
+        
+        .highlight {
+            position: absolute;
+            height: 60%;
+            width: 100px;
+            top: 25%;
+            left: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        /* active state */
+        
+        .input:focus ~ .highlight {
+            -webkit-animation: inputHighlighter 0.3s ease;
+            -moz-animation: inputHighlighter 0.3s ease;
+            animation: inputHighlighter 0.3s ease;
+        }
+        /* ANIMATIONS ================ */
+        
+        @-webkit-keyframes inputHighlighter {
+            from {
+                background: #5264AE;
+            }
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+        
+        @-moz-keyframes inputHighlighter {
+            from {
+                background: #5264AE;
+            }
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+        
+        @keyframes inputHighlighter {
+            from {
+                background: #5264AE;
+            }
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Google Material Design in CSS3<small>Inputs</small></h2>
+
+        <form>
+
+            <div class="group">
+                <input id="PostTitle" class="input" type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Post Title</label>
+            </div>
+
+            <div class="group">
+                <textarea class="input" rows="4" id="PostBody" placeholder="Enter text here..."></textarea>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Post Body</label>
+                <a href="http://www.froala.com/wysiwyg-editor/" target="_blank">
+                    <div style="font-style: italic;color: #474748; padding: 18px;cursor: pointer; display: inline-block;float: right;">wysiwyg Editor</div>
+                </a>
+            </div>
+
+            <div class="group" style="margin-top: 92px;">
+                <input class="input" id="HashTag" type="text" placeholder="#Software, #PDF, #Code, #Imp">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label># Tags</label>
+            </div>
+
+            <div class="group">
+                <input id="pass" class="input" type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Password</label>
+                <div style="font-style: italic;color: #474748; padding: 18px;cursor: pointer; display: inline-block;" onclick="ForgotPassword()" >Forgot Password</div>
+                <div id="MsgBox" style="font-style: italic;color: #ea4335; padding: 18px;cursor: pointer; display: none;">Forgot Password</div>
+            </div>
+                        
+            
+            <div class="moreAppButton" style="display: inline-block; float: right;"  onclick="PublishPost()">
+                <i class="material-icons" style="vertical-align: bottom;font-size: 1.8rem;">arrow_forward</i>
+            </div>            
+
+
+        </form>
+        
+        
+        <div class="footer">
+                <a href="https://unexpectedweb.blogspot.in/" target="_blank">unexpectedweb</a> by abonzer
+            </div>
+
+    </div>
+    
+    <script>
+        function ForgotPassword(){
+            google.script.run.withSuccessHandler(UpdateMsg).forgotPass();
+        }
+    
+        function PublishPost(){
+        document.getElementById("MsgBox").style.display = "none";
+            var PostBody = document.getElementById("PostBody").value;
+            var PostTitle = document.getElementById("PostTitle").value;
+            var HashTag = document.getElementById("HashTag").value;
+            var pass = document.getElementById("pass").value;
+            google.script.run.withSuccessHandler(UpdateMsg).publish(PostBody, PostTitle, HashTag, pass);
+        }
+        
+        function UpdateMsg(msg){ 
+         document.getElementById("MsgBox").innerHTML = msg;
+         document.getElementById("MsgBox").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>
